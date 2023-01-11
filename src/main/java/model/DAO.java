@@ -16,7 +16,7 @@ public class DAO {
 	static Locale ptBr = new Locale("pt","BR");
 	
 	//Connection attributes
-	private String drive = "com.mysql.cj.jdbc.Driver";
+	private String drive = "com.mysql.jdbc.Driver";
 	private String url = "jdbc:mysql://127.0.0.1:3306/bdprojetopizzaria?userTimezone=true&serverTimezone=UTC";
 	private String user = "root";
 	private String password = "";
@@ -28,11 +28,12 @@ public class DAO {
 		try {
 			Class.forName(drive);
 			con = DriverManager.getConnection(url,user,password);
+			return con;
 		} catch (Exception e) {
 			System.out.println("Método de conexão ");
 			System.out.println(e);
+			return null;
 		}
-		return con;
 	}
 	
 	//Test connection method
@@ -163,8 +164,8 @@ public class DAO {
 			pstm.setString(2, admin.getLogin());
 			pstm.setString(3, admin.getSenha());
 			pstm.setString(4, admin.getCpf());
-			pstm.execute();
-			pstm.close();
+			pstm.executeUpdate();
+			pstm.close();	
 		} catch (Exception e) {
 			System.out.println("Método de inserir admin");
 			System.out.println(e);

@@ -67,7 +67,7 @@ public class Controller extends HttpServlet {
 			admin.setSenha(request.getParameter("senha"));
 			admin.setCpf(request.getParameter("cpf"));
 			dao.inserirAdmin(admin);
-			response.sendRedirect("main");
+			response.sendRedirect("admin-table.jsp");
 		} catch (Exception e) {
 			System.out.println(e);
 		}
