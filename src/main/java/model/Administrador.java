@@ -2,7 +2,7 @@ package model;
 
 public class Administrador {
 	
-	private int idAdministrador;
+	private String idAdministrador;
 	private String nome;
 	private String login;
 	private String senha;
@@ -14,7 +14,7 @@ public class Administrador {
 	}
 
 
-	public Administrador(int idAdministrador, String nome, String login, String senha, String cpf) {
+	public Administrador(String idAdministrador, String nome, String login, String senha, String cpf) {
 		super();
 		this.idAdministrador = idAdministrador;
 		this.nome = nome;
@@ -24,12 +24,12 @@ public class Administrador {
 	}
 
 
-	public int getIdAdministrador() {
+	public String getIdAdministrador() {
 		return idAdministrador;
 	}
 
 
-	public void setIdAdministrador(int idAdministrador) {
+	public void setIdAdministrador(String idAdministrador) {
 		this.idAdministrador = idAdministrador;
 	}
 

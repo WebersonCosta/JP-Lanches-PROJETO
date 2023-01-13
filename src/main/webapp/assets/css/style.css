@@ -223,10 +223,25 @@ nav .menu-btn i{
 .login-logo{
     margin-left: 50px;
 }
-.tabelaAdmin{
+.tabela{
 	margin-top: 150px;
 	margin-bottom: 320px;
 	margin-left: 40px;
+}
+#tabelaAdmin{
+	margin-top: 30px;
+	border-collapse: collapse;
+}
+#tabelaAdmin th{
+	border: 1px solid #000000;
+	padding: 10px;
+	text-align: left;
+	background-color: rgba(250, 20, 20, 0.753);
+	color: white;
+}
+#tabelaAdmin td{
+	border: 1px solid rgba(250, 20, 20, 0.753);
+	padding: 10px;
 }
 footer{
     text-align: center;
