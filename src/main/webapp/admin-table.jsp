@@ -32,9 +32,7 @@ request.getAttribute("administradores");
 		<div>
 			<div class="tabela">
 				<h1>TABELA DE ADMINISTRADORES</h1>
-				<div class="btn-padrao">
-					<a href="cadastro-admin.html">Cadastrar Novo</a>
-				</div>
+				<a class="btn-padrao" href="cadastro-admin.html">Cadastrar Novo</a>
 				<table id="tabelaAdmin">
 					<thead>
 						<tr>
@@ -43,6 +41,7 @@ request.getAttribute("administradores");
 							<th>USUARIO</th>
 							<th>SENHA</th>
 							<th>CPF</th>
+							<th>OPÇÕES</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -53,6 +52,7 @@ request.getAttribute("administradores");
 								<td><%=lista.get(i).getLogin() %></td>
 								<td><%=lista.get(i).getSenha() %></td>
 								<td><%=lista.get(i).getCpf() %></td>
+								<td><a href="select?idAdministrador=<%=lista.get(i).getIdAdministrador() %>" class="btn-padrao">Editar</a></td>
 							</tr>
 						<% } %>
 					</tbody>

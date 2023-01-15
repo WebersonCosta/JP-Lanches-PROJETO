@@ -156,11 +156,21 @@ nav .menu-btn i{
     width: 100%;
     border: none;
     border-radius: 10px;
-    padding: 15px; 
+    padding: 10px; 
     background-color: #eeeeee;
     color: black;
     outline: none;
-    margin-bottom: 20px;
+    margin-bottom: 15px;
+    margin-top: 10px;
+}
+#idAdmin{
+    width: 100%;
+    border: 1px solid rgba(250, 20, 20, 0.753);
+    padding: 10px; 
+    background-color: rgb(178, 178, 178);
+    color: black;
+    outline: none;
+    margin-bottom: 15px;
     margin-top: 10px;
 }
 .home-imagem-logo{
@@ -275,12 +285,13 @@ footer a{
     background-color: rgba(250, 20, 20, 0.753);
     color: white;
     font-weight: 500;
-    margin-top: 20px;
-    margin-bottom: 20px;
+    margin-top: 15px;
+    margin-bottom: 15px;
     cursor: pointer;
     border: none;
     text-align: center;
-    padding: 8px;
+    padding: 7px;
+    text-decoration: none;
 }
 .btn-padrao-c{
     width: 150px;

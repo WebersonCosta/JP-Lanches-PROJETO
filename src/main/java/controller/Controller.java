@@ -36,6 +36,10 @@ public class Controller extends HttpServlet {
 			administradores(request, response);
 		} else if (action.equals("/insert")) {
 			inserirAdmin(request, response);
+		} else if (action.equals("/select")) {
+			listarAdmin(request, response);
+		} else if (action.equals("/update")) {
+			editarAdmin(request, response);
 		} else {
 			response.sendRedirect("index.html");
 		}
@@ -45,15 +49,6 @@ public class Controller extends HttpServlet {
 	protected void administradores(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		ArrayList<Administrador> lista = dao.listarAdmin();
-		/*
-		for (int i = 0; i < lista.size(); i++) {
-			System.out.println(lista.get(i).getIdAdministrador());
-			System.out.println(lista.get(i).getNome());
-			System.out.println(lista.get(i).getLogin());
-			System.out.println(lista.get(i).getSenha());
-			System.out.println(lista.get(i).getCpf());
-		}
-		*/
 		request.setAttribute("administradores", lista);
 		RequestDispatcher rd = request.getRequestDispatcher("admin-table.jsp");
 		rd.forward(request, response);
@@ -61,12 +56,7 @@ public class Controller extends HttpServlet {
 
 	protected void inserirAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * System.out.println(request.getParameter("nome"));
-		 * System.out.println(request.getParameter("usuario"));
-		 * System.out.println(request.getParameter("senha"));
-		 * System.out.println(request.getParameter("cpf"));
-		 */
+
 		try {
 			administrador.setNome(request.getParameter("nome"));
 			administrador.setLogin(request.getParameter("usuario"));
@@ -79,31 +69,53 @@ public class Controller extends HttpServlet {
 		}
 
 	}
+
+	protected void listarAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+
+		String idAdministrador = request.getParameter("idAdministrador");
+		administrador.setIdAdministrador(idAdministrador);
+		dao.selecionarAdmin(administrador);
+
+		try {
+			request.setAttribute("idAdministrador", administrador.getIdAdministrador());
+			request.setAttribute("nome", administrador.getNome());
+			request.setAttribute("usuario", administrador.getLogin());
+			request.setAttribute("senha", administrador.getSenha());
+			request.setAttribute("cpf", administrador.getCpf());
+			RequestDispatcher rd = request.getRequestDispatcher("editar.jsp");
+			rd.forward(request, response);
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
+
+	protected void editarAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		/*
+		 * System.out.println(request.getParameter("idAdmin"));
+		 * System.out.println(request.getParameter("nome"));
+		 * System.out.println(request.getParameter("usuario"));
+		 * System.out.println(request.getParameter("senha"));
+		 * System.out.println(request.getParameter("cpf"));
+		 */
+		String idAdministrador = request.getParameter("idAdministrador");
+		administrador.setIdAdministrador(idAdministrador);
+		try {
+			administrador.setIdAdministrador(idAdministrador);
+			administrador.setNome(request.getParameter("nome"));
+			administrador.setLogin(request.getParameter("usuario"));
+			administrador.setSenha(request.getParameter("senha"));
+			administrador.setCpf(request.getParameter("cpf"));
+			dao.editarAdmin(administrador);
+			response.sendRedirect("adminTable");
+		} catch (Exception e) {
+			System.out.println(e);
+		}
+
+	}
 	/*
-	 * protected void listarAdmin(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { int idAdministrador =
-	 * Integer.parseInt(request.getParameter("idAdministrador"));
-	 * admin.setIdAdministrador(idAdministrador);
-	 * 
-	 * try { request.setAttribute("idAdministrador", admin.getIdAdministrador());
-	 * request.setAttribute("nome", admin.getNome()); request.setAttribute("login",
-	 * admin.getLogin()); request.setAttribute("senha", admin.getSenha());
-	 * request.setAttribute("cpf", admin.getCpf()); RequestDispatcher rd =
-	 * request.getRequestDispatcher("editar.jsp"); rd.forward(request, response); }
-	 * catch (Exception e) { System.out.println(e); } }
-	 * 
-	 * protected void editarAdmin(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { int idAdministrador =
-	 * Integer.parseInt(request.getParameter("idAdministrador"));
-	 * admin.setIdAdministrador(idAdministrador); try {
-	 * admin.setIdAdministrador(idAdministrador);
-	 * admin.setNome(request.getParameter("nome"));
-	 * admin.setLogin(request.getParameter("login"));
-	 * admin.setSenha(request.getParameter("senha"));
-	 * admin.setCpf(request.getParameter("cpf")); dao.editarAdmin(admin);
-	 * response.sendRedirect("main"); } catch (Exception e) { System.out.println(e);
-	 * } }
-	 * 
 	 * protected void deletarAdmin(HttpServletRequest request, HttpServletResponse
 	 * response) throws ServletException, IOException { int idAdministrador =
 	 * Integer.parseInt(request.getParameter("idAdministrador"));

@@ -136,30 +136,48 @@ public class DAO {
 		}
 	}
 
+	public void selecionarAdmin(Administrador admin) {
+		String sql = "SELECT * FROM administrador WHERE idAdministrador = ?";
+		try {
+			Connection con = conectar();
+			PreparedStatement pstm = con.prepareStatement(sql);
+			pstm.setString(1, admin.getIdAdministrador());
+			ResultSet rs = pstm.executeQuery();
+			while (rs.next()) {
+				admin.setIdAdministrador(rs.getString(1));
+				admin.setNome(rs.getString(2));
+				admin.setLogin(rs.getString(3));
+				admin.setSenha(rs.getString(4));
+				admin.setCpf(rs.getString(5));
+			}
+			con.close();
+		} catch (Exception e) {
+			System.out.println("Método de selecionar admin ");
+			System.out.println(e);
+		}
+	}
+
+	public void editarAdmin(Administrador admin) {
+		
+		String create = "UPDATE administrador SET nome=?, login=?, senha=?, cpf=? WHERE idAdministrador=?";
+
+		try {
+			Connection con = conectar();
+			PreparedStatement pstm = con.prepareStatement(create);
+			pstm.setString(1, admin.getNome());
+			pstm.setString(2, admin.getLogin());
+			pstm.setString(3, admin.getSenha());
+			pstm.setString(4, admin.getCpf());
+			pstm.setString(5, admin.getIdAdministrador());
+			pstm.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println("Método de editar admin ");
+			System.out.println(e);
+		}
+		
+	}
 	/*
-	 * public void selecionarAdmin(Administrador admin) { String sql =
-	 * "SELECT * FROM administrador WHERE idAdministrador = ?"; try { Connection con
-	 * = conectar(); PreparedStatement pstm = con.prepareStatement(sql);
-	 * pstm.setString(1, admin.getIdAdministrador()); ResultSet rs =
-	 * pstm.executeQuery(sql); while (rs.next()) {
-	 * admin.setIdAdministrador(rs.getString("idAdministrador"));
-	 * admin.setNome(rs.getString("nome")); admin.setLogin(rs.getString("login"));
-	 * admin.setSenha(rs.getString("senha")); admin.setCpf(rs.getString("cpf")); }
-	 * con.close(); } catch (Exception e) {
-	 * System.out.println("Método de selecionar admin "); System.out.println(e); } }
-	 * 
-	 * public void editarAdmin(Administrador admin) { String sql =
-	 * "UPDATE administrador SET nome=?, login?, senha=?, cpf=? WHERE idAdministrador=?"
-	 * ;
-	 * 
-	 * try { Connection con = conectar(); PreparedStatement pstm =
-	 * con.prepareStatement(sql); pstm.setString(1, admin.getNome());
-	 * pstm.setString(2, admin.getLogin()); pstm.setString(3, admin.getSenha());
-	 * pstm.setString(4, admin.getCpf()); pstm.setString(5,
-	 * admin.getIdAdministrador()); pstm.executeUpdate(); con.close(); } catch
-	 * (Exception e) { System.out.println("Método de editar admin ");
-	 * System.out.println(e); } }
-	 * 
 	 * public void deletarAdmin(Administrador admin) { String sql =
 	 * "DELETE FROM administrador WHERE idAdministrador =?";
 	 * 
