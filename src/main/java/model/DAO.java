@@ -158,7 +158,7 @@ public class DAO {
 	}
 
 	public void editarAdmin(Administrador admin) {
-		
+
 		String create = "UPDATE administrador SET nome=?, login=?, senha=?, cpf=? WHERE idAdministrador=?";
 
 		try {
@@ -175,15 +175,22 @@ public class DAO {
 			System.out.println("Método de editar admin ");
 			System.out.println(e);
 		}
-		
+
 	}
-	/*
-	 * public void deletarAdmin(Administrador admin) { String sql =
-	 * "DELETE FROM administrador WHERE idAdministrador =?";
-	 * 
-	 * try { Connection con = conectar(); PreparedStatement pstm =
-	 * con.prepareStatement(sql); pstm.setString(1, admin.getIdAdministrador());
-	 * pstm.executeUpdate(); con.close(); } catch (Exception e) {
-	 * System.out.println("Método de deletar admin "); System.out.println(e); } }
-	 */
+
+	public void deletarAdmin(Administrador admin) {
+		String delete = "DELETE FROM administrador WHERE idAdministrador=?";
+
+		try {
+			Connection con = conectar();
+			PreparedStatement pstm = con.prepareStatement(delete);
+			pstm.setString(1, admin.getIdAdministrador());
+			pstm.executeUpdate();
+			con.close();
+		} catch (Exception e) {
+			System.out.println("Método de deletar admin ");
+			System.out.println(e);
+		}
+	}
+
 }

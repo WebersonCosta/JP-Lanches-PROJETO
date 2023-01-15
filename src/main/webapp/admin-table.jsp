@@ -52,7 +52,12 @@ request.getAttribute("administradores");
 								<td><%=lista.get(i).getLogin() %></td>
 								<td><%=lista.get(i).getSenha() %></td>
 								<td><%=lista.get(i).getCpf() %></td>
-								<td><a href="select?idAdministrador=<%=lista.get(i).getIdAdministrador() %>" class="btn-padrao">Editar</a></td>
+								<td>
+									<a href="select?idAdministrador=<%=lista.get(i).getIdAdministrador() %>"
+								 	class="btn-padrao">Editar</a> 
+								 	<a href="javascript: confirmar(<%=lista.get(i).getIdAdministrador() %>)"
+								 	class="btn-padrao2">Excluir</a>
+								 </td>
 							</tr>
 						<% } %>
 					</tbody>
@@ -65,5 +70,6 @@ request.getAttribute("administradores");
 			<p>&copy; Desenvolvido por Weberson costa</p>
 		</a>
 	</footer>
+	<script src="assets/js/confirmador.js"></script>
 </body>
 </html>

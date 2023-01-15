@@ -40,7 +40,9 @@ public class Controller extends HttpServlet {
 			listarAdmin(request, response);
 		} else if (action.equals("/update")) {
 			editarAdmin(request, response);
-		} else {
+		} else if (action.equals("/delete")) {
+			deletarAdmin(request, response);
+		}else {
 			response.sendRedirect("index.html");
 		}
 
@@ -93,13 +95,7 @@ public class Controller extends HttpServlet {
 
 	protected void editarAdmin(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
-		/*
-		 * System.out.println(request.getParameter("idAdmin"));
-		 * System.out.println(request.getParameter("nome"));
-		 * System.out.println(request.getParameter("usuario"));
-		 * System.out.println(request.getParameter("senha"));
-		 * System.out.println(request.getParameter("cpf"));
-		 */
+		
 		String idAdministrador = request.getParameter("idAdministrador");
 		administrador.setIdAdministrador(idAdministrador);
 		try {
@@ -115,12 +111,14 @@ public class Controller extends HttpServlet {
 		}
 
 	}
-	/*
-	 * protected void deletarAdmin(HttpServletRequest request, HttpServletResponse
-	 * response) throws ServletException, IOException { int idAdministrador =
-	 * Integer.parseInt(request.getParameter("idAdministrador"));
-	 * admin.setIdAdministrador(idAdministrador);
-	 * 
-	 * dao.deletarAdmin(admin); response.sendRedirect("main"); }
-	 */
+
+	protected void deletarAdmin(HttpServletRequest request, HttpServletResponse response)
+			throws ServletException, IOException {
+		String idAdministrador = request.getParameter("idAdministrador");
+		administrador.setIdAdministrador(idAdministrador);
+		
+		dao.deletarAdmin(administrador);
+		response.sendRedirect("adminTable");
+	}
+
 }
