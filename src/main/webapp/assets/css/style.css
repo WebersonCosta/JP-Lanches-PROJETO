@@ -175,7 +175,6 @@ nav .menu-btn i{
 }
 .home-imagem-logo{
     margin-top: 20rem;
-    margin-bottom: 15rem;
 }
 .dinamic{
     width: 100%;
@@ -186,19 +185,44 @@ nav .menu-btn i{
 .container-logo{
     margin: 3rem auto;
     display: block;
-    max-width: 90rem;
+    max-width: 70rem;
 }
 .container-logo-login{
     margin: 3rem auto;
     display: block;
-    max-width: 70rem;
+    max-width: 80rem;
 }
 .container-pizzaiolo{
     margin: 3rem auto;
     display: block;
-    max-width: 70rem;
+    max-width:60rem;
+}
+.container-pizzaria{
+    margin: 3rem auto;
+    display: block;
+    max-width:75rem;
 }
 .about{
+    background-color: #F2F2F2;
+    margin-top: 80px;
+}
+.tp-1-2{
+    padding: 4rem;
+    justify-content: space-around;
+    display: flex;
+    flex-wrap: wrap;
+}
+.art-1-2{
+    display: block;
+    margin: 20px auto;
+    font-size: 26px;
+    color: #525252;
+    border-radius: 50px;
+    text-align: left;
+    padding: 3rem;
+    width: 40rem;
+}
+.aboutHome{
     background-color: #ebe0c4;
 }
 .tp-1{
@@ -224,6 +248,40 @@ nav .menu-btn i{
 .art-1 h1{
     text-align: center;
     padding: 1.6rem;
+}
+.missao{
+    display: block;
+    margin: 20px;
+    font-size: 26px;
+    color: #525252;
+    background-color: #fff;
+    border-radius: 50px;
+    text-align: justify;
+    padding: 3rem;
+    width: 60rem;
+}
+.visao{
+    display: block;
+    margin: auto;
+    font-size: 26px;
+    color: #525252;
+    background-color: #fff;
+    border-radius: 50px;
+    text-align: justify;
+    padding: 3rem;
+    width: 60rem;
+}
+.valores{
+    display: block;
+    margin: 20px;
+    font-size: 26px;
+    color: #525252;
+    background-color: #fff;
+    border-radius: 50px;
+    text-align: justify;
+    float: right;
+    padding: 3rem;
+    width: 60rem;
 }
 .linha{
     display: flex;

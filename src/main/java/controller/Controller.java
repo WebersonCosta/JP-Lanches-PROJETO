@@ -31,7 +31,6 @@ public class Controller extends HttpServlet {
 	protected void doGet(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 		String action = request.getServletPath();
-		System.out.println(action);
 		if (action.equals("/adminTable")) {
 			administradores(request, response);
 		} else if (action.equals("/insert")) {
