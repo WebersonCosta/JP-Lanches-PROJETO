@@ -13,13 +13,13 @@
     <main>
         <header>
             <nav>
-                <div class="logo"><a href="loginAdmin.jsp"><img src="assets/img/logo/logo-ppp.png" alt="#"></a></div>
+                <div class="logo"><a href="index.html"><img src="assets/img/logo/logo-ppp.png" alt="#"></a></div>
                 <div class="menu-btn">
                     <i class="fa fa fa-bars fa-2x" onclick="menuShow()"></i>
                 </div>
                 <ul>
-                    <li><a href="index.html" class="active">Home</a></li>
-                    <li><a href="quemsomos.html" class="option-menu">Quem somos</a></li>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="#" class="option-menu active">Quem somos</a></li>
                     <li class="drop-cardapio">
                         <a href="#" class="drop-cardapio-link">Cardápio</a>
                         <div class="itens-produto-menu">
@@ -37,22 +37,35 @@
             </nav>
         </header>
         <div>
-            <section class="home-imagem-logo">
-                <picture class="container-logo">
-                        <img src="assets/img/logo/logo-gg.png" alt="logo marca da pizzaria" class="dinamic">
+            <section class="about">
+                <picture class="cont-img">
+                    <source media="(max-width: 1200)" srcset="assets/img/pizzaria/photo-pizzaria-quemsomos.jpg" type="image/jpg">
+                    <img src="assets/img/pizzaria/photo-pizzaria-quemsomos.jpg" alt="" class="dinamic">
                 </picture>
-            </section>
-            <section class="about-bege">
-                <div class="tp-1">
-                    <picture class="container-pizzaiolo">
-                        <source media="(max-width: 1000px)" srcset="assets/img/pizzaiolo/pizzaiolo.png" type="image/png" class="dinamic">
-                        <img src="assets/img/pizzaiolo/pizzaiolo-g.png" alt="" class="dinamic">
-                    </picture>
-                    <article class="art-1">
-                        <h1>Descrição rápida da pizzaria</h1>
+                <div class="tp-1-2">
+                    <article class="art-1-2">
+                        <h1>Quem Somos</h1>
                         <p>Lorem ipsum dolor sit amet consectetur, adipisicing elit. Delectus adipisci totam animi veritatis officiis laboriosam nostrum, assumenda ipsam molestias saepe aspernatur quia, tenetur quas obcaecati, dicta nemo cum praesentium distinctio! Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
                     </article>
+                    <picture class="container-pizzaria">
+                        <source media="(max-width: 800px)" srcset="assets/img/pizzaria/photo-pizzaria-m.png" type="image/png" class="dinamic">
+                        <img src="assets/img/pizzaria/photo-pizzaria.png" alt="" class="dinamic">
+                    </picture>
                 </div>
+                <section>
+                    <article class="missao">
+                        <h2>Missão</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nostrum voluptatum, vel assumenda at laudantium fugiat corrupti Atque, nostrum voluptatum, vel assumenda at laudantium fugiat corrupti </p>
+                    </article>
+                    <article class="visao">
+                        <h2>Visão</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nostrum voluptatum, vel assumenda at laudantium fugiat corrupti</p>
+                    </article>
+                    <article class="valores">
+                        <h2>Valores</h2>
+                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Atque, nostrum voluptatum, vel assumenda at laudantium fugiat corrupti Atque, nostrum voluptatum, vel assumenda at laudantium fugiat corrupti</p>               
+                    </article>
+                </section>
             </section>
         </div>
         <footer>
